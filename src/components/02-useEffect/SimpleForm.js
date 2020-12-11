@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import './effects.css'
+import Message from "./Message";
 
 const SimpleForm = props => {
 
@@ -17,20 +18,12 @@ const SimpleForm = props => {
     }, [])
 
     useEffect(() => {
-        console.log(`El formulario ha cambiado`)
-        console.log(`Email => ${email}`)
-        console.log(`Name => ${name}`)
-        // cuando pones un valor entre los corchetes [formState] se ejecuta la funcion cada vez que cambie este valor en este caso los inputs
     }, [formState])
 
     useEffect(() => {
-        console.log(`Name => ${name}`)
-        // cuando pones un valor entre los corchetes [name] se ejecuta la funcion cada vez que cambie este valor en este caso los inputs
     }, [name])
 
     useEffect(() => {
-        console.log(`Email => ${email}`)
-        // cuando pones un valor entre los corchetes [email] se ejecuta la funcion cada vez que cambie este valor en este caso los inputs
     }, [email])
 
     const handleInputChange = ({ target }) => {
@@ -43,6 +36,7 @@ const SimpleForm = props => {
     return (
         <>
             <h1>Use Effect</h1>
+            <hr/>
             <div className="form-group">
                 <input
                     type="text"
@@ -63,6 +57,8 @@ const SimpleForm = props => {
                     onChange={ handleInputChange }
                 />
             </div>
+
+            {( name === '123') && <Message /> }
         </>
     );
 };
